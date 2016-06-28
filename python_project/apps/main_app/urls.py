@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^faq$', views.faq),
-    url(r'^blog$', views.blog),
-    url(r'^contact$', views.contact),
+    url(r'^register$', views.register),
+    url(r'^login$', views.login),
+    url(r'^delete_user/(?P<id>\d+)$', views.delete)
 ]
