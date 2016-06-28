@@ -41,37 +41,37 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="http://127.0.0.1:8000/about">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="http://127.0.0.1:8000/services">Services</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="http://127.0.0.1:8000/contact">Contact</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
+                                <a href="http://127.0.0.1:8000/portfolio1">1 Column Portfolio</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                                <a href="http://127.0.0.1:8000/portfolio2">2 Column Portfolio</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
+                                <a href="http://127.0.0.1:8000/portfolio3">3 Column Portfolio</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="http://127.0.0.1:8000/portfolio4">4 Column Portfolio</a>
                             </li>
                             <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
+                                <a href="http://127.0.0.1:8000/portfolio_item">Single Portfolio Item</a>
                             </li>
                         </ul>
                     </li>
@@ -79,33 +79,33 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
+                                <a href="http://127.0.0.1:8000/blog1">Blog Home 1</a>
                             </li>
                             <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
+                                <a href="http://127.0.0.1:8000/blog2">Blog Home 2</a>
                             </li>
                             <li>
-                                <a href="blog-post.html">Blog Post</a>
+                                <a href="http://127.0.0.1:8000/blog_post">Blog Post</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="full-width.html">Full Width Page</a>
+                                <a href="http://127.0.0.1:8000/full_width">Full Width Page</a>
+                            </li>
+                            <li class="active">
+                                <a href="http://127.0.0.1:8000/sidebar">Sidebar Page</a>
                             </li>
                             <li>
-                                <a href="sidebar.html">Sidebar Page</a>
+                                <a href="http://127.0.0.1:8000/faq">FAQ</a>
                             </li>
                             <li>
-                                <a href="faq.html">FAQ</a>
+                                <a href="http://127.0.0.1:8000/four">404</a>
                             </li>
                             <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
+                                <a href="http://127.0.0.1:8000/pricing">Pricing Table</a>
                             </li>
                         </ul>
                     </li>
@@ -284,7 +284,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Monster Mash 2016</p>
                 </div>
             </div>
         </footer>
@@ -293,10 +293,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="{% static "main_app/js/jquery.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static "main_app/js/bootstrap.min.js" %}"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>
