@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>MAsh uP | Home</title>
 
     {% load staticfiles %}
     <!-- Bootstrap Core CSS -->
@@ -41,73 +41,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://127.0.0.1:8000/">Start Bootstrap</a>
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">MAsh uP</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="http://127.0.0.1:8000/about">About</a>
-                    </li>
-                    <li>
                         <a href="http://127.0.0.1:8000/services">Services</a>
                     </li>
+                    <li><a href="#">|</a></li>
                     <li>
-                        <a href="http://127.0.0.1:8000/contact">Contact</a>
+                        <a href="http://127.0.0.1:8000/portfolio_item">Trade Room</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="http://127.0.0.1:8000/portfolio1">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/portfolio2">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/portfolio3">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/portfolio4">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/portfolio_item">Single Portfolio Item</a>
-                            </li>
-                        </ul>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/blog2">Profile</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="http://127.0.0.1:8000/blog1">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/blog2">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/blog_post">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="http://127.0.0.1:8000/full_width">Full Width Page</a>
-                            </li>
-                            <li class="active">
-                                <a href="http://127.0.0.1:8000/sidebar">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/faq">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/four">404</a>
-                            </li>
-                            <li>
-                                <a href="http://127.0.0.1:8000/pricing">Pricing Table</a>
-                            </li>
-                        </ul>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/login">Login / Register</a>
                     </li>
                 </ul>
             </div>
@@ -128,21 +80,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div class="fill" style="background: url('{% static "main_app/img/demopeople.png" %}') no-repeat center; background-size: 30%"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2>Create a Figure</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="fill" style="background: url('{% static "main_app/img/tradelogo.png" %}') no-repeat center; background-size: 30%"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2>Trade your Creations</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="fill" style="background: url('{% static "main_app/img/logo.png" %}') no-repeat center; background-size: 30%"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    <h2>MAsh uP</h2>
                 </div>
             </div>
         </div>
@@ -158,49 +110,6 @@
 
     <!-- Page Content -->
     <div class="container">
-
-        <!-- Marketing Icons Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Welcome to Modern Business
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
 
         <!-- Portfolio Section -->
         <div class="row">
@@ -284,7 +193,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Monster Mash 2016</p>
+                    <p>Copyright &copy; MAsh uP 2016</p>
                 </div>
             </div>
         </footer>
