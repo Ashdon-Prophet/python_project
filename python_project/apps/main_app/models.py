@@ -89,9 +89,9 @@ class Creature(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Trade(models.Model):
-    user_sender = models.ForeignKey(User)
-    user_recipient = models.ForeignKey(User)
-    creature_sent = models.ForeignKey(Creatures) 
-    creature_received = models.ForeignKey(Creatures)
+    user_sender = models.ForeignKey(User, related_name="sender")
+    user_recipient = models.ForeignKey(User, related_name="recipient")
+    creature_sent = models.ForeignKey(Creature, related_name="sent")
+    creature_received = models.ForeignKey(Creature, related_name="reveived")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
