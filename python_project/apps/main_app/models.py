@@ -44,6 +44,10 @@ class User(models.Model):
     username = models.CharField(max_length=45, default="USERNAME")
     email = models.EmailField(max_length=255)
     password = models.CharField(max_length=255)
+    description = models.TextField(max_length=500)
+    created = models.IntegerField()    
+    traded = models.IntegerField()
+    last_log = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     userManager = UserManager()
@@ -51,25 +55,25 @@ class User(models.Model):
 
 class Head(models.Model):
     style_name = models.CharField(max_length=100)
-    color = models.CharField(max_length=100)
+    file_path = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Body(models.Model):
     style_name = models.CharField(max_length=100)
-    color = models.CharField(max_length=100)
+    file_path = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Arm(models.Model):
     style_name = models.CharField(max_length=100)
-    color = models.CharField(max_length=100)
+    file_path = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Leg(models.Model):
     style_name = models.CharField(max_length=100)
-    color = models.CharField(max_length=100)
+    file_path = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
