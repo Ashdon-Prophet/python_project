@@ -9,7 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+<<<<<<< HEAD
+    <title>MAsh uP | Sidebar</title>
+=======
     <title>Modern Business - Start Bootstrap Template</title>
+>>>>>>> master
 
     {% load staticfiles %}
     <!-- Bootstrap Core CSS -->
@@ -41,11 +45,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">MAsh uP</a>
+=======
                 <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+>>>>>>> master
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
+                    <li>
+                        <a href="http://127.0.0.1:8000/services">Services</a>
+                    </li>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/portfolio_item">Trade Room</a>
+                    </li>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/blog2">Profile</a>
+                    </li>
+                    <li><a href="#">|</a></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/login">Login / Register</a>
+=======
                     <li class="active">
                         <a href="about.html">About</a>
                     </li>
@@ -108,6 +132,7 @@
                                 <a href="pricing.html">Pricing Table</a>
                             </li>
                         </ul>
+>>>>>>> master
                     </li>
                 </ul>
             </div>
@@ -116,6 +141,110 @@
         <!-- /.container -->
     </nav>
 
+<<<<<<< HEAD
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">MAsh uP
+                    <small>Creator</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Heads</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">Head 2</a>
+                                    <a href="#" class="list-group-item">Head 1</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bodies</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <a href="#" class="list-group-item">Body 1</a>
+                                <a href="#" class="list-group-item">Body 2</a>
+                                <a href="#" class="list-group-item">Body 3</a>
+                                <a href="#" class="list-group-item">Body 4</a>
+                                <a href="#" class="list-group-item">Body 5</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Arms</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <a href="#" class="list-group-item">Arms 1</a>
+                                <a href="#" class="list-group-item">Arms 2</a>
+                                <a href="#" class="list-group-item">Arms 3</a>
+                                <a href="#" class="list-group-item">Arms 4</a>
+                                <a href="#" class="list-group-item">Arms 5</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Legs</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <a href="#" class="list-group-item">Legs 1</a>
+                                <a href="#" class="list-group-item">Legs 2</a>
+                                <a href="#" class="list-group-item">Legs 3</a>
+                                <a href="#" class="list-group-item">Legs 4</a>
+                                <a href="#" class="list-group-item">Legs 5</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.panel-group -->
+            </div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <div class="creator" style="width:750px; height:375px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%;">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="legs"></div>
+                    <div class="arms"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+=======
     <h3>Register</h3>
     <form action="/register" method="post">
       {% csrf_token %}
@@ -141,11 +270,16 @@
       <label for="submit"><input type="submit" name="submit" value="Log In"></label>
     </form>
     <hr>
+>>>>>>> master
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
+<<<<<<< HEAD
+                    <p>Copyright &copy; MAsh uP 2016</p>
+=======
                     <p>Copyright &copy; Your Website 2014</p>
+>>>>>>> master
                 </div>
             </div>
         </footer>
@@ -154,13 +288,25 @@
     <!-- /.container -->
 
     <!-- jQuery -->
+<<<<<<< HEAD
+    <script src="{% static "main_app/js/jquery.js" %}">
+    
+    </script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "main_app/js/bootstrap.min.js" %}"></script>
+=======
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+>>>>>>> master
 
 </body>
 
 </html>
+<<<<<<< HEAD
+=======
 
 </html>
+>>>>>>> master
