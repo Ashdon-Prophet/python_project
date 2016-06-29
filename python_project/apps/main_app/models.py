@@ -45,7 +45,7 @@ class User(models.Model):
     email = models.EmailField(max_length=255)
     password = models.CharField(max_length=255)
     description = models.TextField(max_length=500)
-    created = models.IntegerField()    
+    created = models.IntegerField()
     traded = models.IntegerField()
     last_log = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -91,7 +91,7 @@ class Creature(models.Model):
 class Trade(models.Model):
     user_sender = models.ForeignKey(User)
     user_recipient = models.ForeignKey(User)
-    creature_sent = models.ForeignKey(Creatures) 
+    creature_sent = models.ForeignKey(Creatures)
     creature_received = models.ForeignKey(Creatures)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
