@@ -10,7 +10,7 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        new_user = User.userManager.register(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'], request.POST['confirm_password'])
+        new_user = User.userManager.register(request.POST['first_name'], request.POST['last_name'], request.POST['username'], request.POST['email'], request.POST['password'], request.POST['confirm_password'])
         if new_user:
             for key, error in new_user.iteritems():
                 messages.error(request, error)
@@ -25,7 +25,3 @@ def login(request):
             return render(request, 'main_app/success.html')
         except:
             return redirect('/')
-
-def delete(request, id):
-    User.userManager.filter(id=id).delete()
-    return redirect('/')

@@ -5,5 +5,4 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^register$', views.register),
     url(r'^login$', views.login),
-    url(r'^delete_user/(?P<id>\d+)$', views.delete)
 ]
