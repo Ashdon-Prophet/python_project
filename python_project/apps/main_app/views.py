@@ -22,6 +22,10 @@ def creator(request):
 def loginandreg(request):
     return render(request, 'main_app/login.html')
 
+def logout(request):
+    request.session.flush()
+    return redirect('/')
+
 def process_register(request):
     if request.method == 'POST':
         new_user = User.userManager.register(request.POST['first_name'], request.POST['last_name'], request.POST['username'], request.POST['email'], request.POST['password'], request.POST['confirm_password'])
