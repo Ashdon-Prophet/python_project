@@ -47,43 +47,44 @@ class User(models.Model):
     description = models.TextField(max_length=500, default="DESCRIPTION")
     number_created = models.IntegerField(default=0)
     traded = models.IntegerField(default=0)
-    last_log = models.IntegerField(default=0)
+    last_log = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     userManager = UserManager()
 
-
-class Head(models.Model):
-    style_name = models.CharField(max_length=100)
-    file_path = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-class Body(models.Model):
-    style_name = models.CharField(max_length=100)
-    file_path = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-class Arm(models.Model):
-    style_name = models.CharField(max_length=100)
-    file_path = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-class Leg(models.Model):
-    style_name = models.CharField(max_length=100)
-    file_path = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
 class Creature(models.Model):
+    HEAD_CHOICES = (
+        ('main_app/img/standard.png', 'Normal'),
+        ('main_app/img/wacky.png', 'Wacky'),
+    )
+    BODY_CHOICES = (
+        ('main_app/img/paleblackbody.png', 'Black Shirt'),
+        ('main_app/img/palebluebody.png', 'Blue Shirt'),
+        ('main_app/img/palegreenbody.png', 'Green Shirt'),
+        ('main_app/img/palegreybody.png', 'Grey Shirt'),
+        ('main_app/img/paleredbody.png', 'Red Shirt'),
+    )
+    ARM_CHOICES = (
+        ('main_app/img/ninja.png', 'Ninja Shirt'),
+        ('main_app/img/paleblackt.png', 'Black T-Shirt'),
+        ('main_app/img/palebluet.png', 'Blue T-Shirt'),
+        ('main_app/img/paleredt.png', 'Red T-Shirt'),
+        ('main_app/img/palegreent.png', 'Green T-Shirt'),
+        ('main_app/img/palesleveless.png', 'Sleeveless T-Shirt'),
+    )
+    LEG_CHOICES = (
+        ('main_app/img/bluepants.png', 'Blue Pants'),
+        ('main_app/img/denimpants.png', 'Denim Plants'),
+        ('main_app/img/paleblackshorts.png', 'Black Shorts'),
+        ('main_app/img/palebrownshorts.png', 'Brown Shorts'),
+        ('main_app/img/bluepants.png', 'Denim Shorts'),
+    )
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
-    head_style = models.ForeignKey(Head)
-    body_style = models.ForeignKey(Body)
-    arm_style = models.ForeignKey(Arm)
-    leg_style = models.ForeignKey(Leg)
+    head_style = models.CharField(max_length=500, choices=HEAD_CHOICES, default='Normal')
+    body_style = models.CharField(max_length=500, choices=BODY_CHOICES, default='Black Shirt')
+    arm_style = models.CharField(max_length=500, choices=ARM_CHOICES, default='Black T-Shirt')
+    leg_style = models.CharField(max_length=500, choices=LEG_CHOICES, default='Blue Pants')
     owner = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

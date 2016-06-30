@@ -26,7 +26,7 @@ def process_register(request):
         if new_user:
             for key, error in new_user.iteritems():
                 messages.error(request, error)
-    return redirect('/profile')
+    return redirect('/login')
 
 def process_login(request):
     if request.method == 'POST':
@@ -36,4 +36,4 @@ def process_login(request):
             request.session['first_name'] = user[1].first_name
             return redirect('/profile')
         except:
-            return redirect('/page_not_found')
+            return redirect('/login')

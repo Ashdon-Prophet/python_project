@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MAsh uP | Sidebar</title>
+    <title>MAsh uP | Creator</title>
 
     {% load staticfiles %}
     <!-- Bootstrap Core CSS -->
@@ -55,7 +55,12 @@
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
+                        <a href="http://127.0.0.1:8000/creator">Creator</a>
+                    </li>
+                    <li><a href="#">|</a></li>
+                    <li>
                         <a href="http://127.0.0.1:8000/login">Login / Register</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -91,8 +96,8 @@
                         <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item">Head 2</a>
-                                    <a href="#" class="list-group-item">Head 1</a>
+                                    <a href="#" id='normal_head' class="list-group-item">Normal</a>
+                                    <a href="#" id='wacky_head' class="list-group-item">Wacky</a>
                                 </div>
                             </div>
                         </div>
@@ -106,11 +111,11 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <a href="#" class="list-group-item">Body 1</a>
-                                <a href="#" class="list-group-item">Body 2</a>
-                                <a href="#" class="list-group-item">Body 3</a>
-                                <a href="#" class="list-group-item">Body 4</a>
-                                <a href="#" class="list-group-item">Body 5</a>
+                                <a href="#" id="black_shirt" class="list-group-item">Black Shirt</a>
+                                <a href="#" id='blue_shirt' class="list-group-item">Blue Shirt</a>
+                                <a href="#" id='green_shirt' class="list-group-item">Green Shirt</a>
+                                <a href="#" id='grey_shirt' class="list-group-item">Grey Shirt</a>
+                                <a href="#" id='red_shirt' class="list-group-item">Red Shirt</a>
                             </div>
                         </div>
                     </div>
@@ -123,11 +128,12 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <a href="#" class="list-group-item">Arms 1</a>
-                                <a href="#" class="list-group-item">Arms 2</a>
-                                <a href="#" class="list-group-item">Arms 3</a>
-                                <a href="#" class="list-group-item">Arms 4</a>
-                                <a href="#" class="list-group-item">Arms 5</a>
+                                <a href="#" id='ninja_sleeves' class="list-group-item">Ninja Shirt</a>
+                                <a href="#" id='black_t' class="list-group-item">Black T-Shirt</a>
+                                <a href="#" id='blue_t' class="list-group-item">Blue T-Shirt</a>
+                                <a href="#" id='red_t' class="list-group-item">Red T-Shirt</a>
+                                <a href="#" id='green_t' class="list-group-item">Green T-Shirt</a>
+                                <a href="#" id='sleeveless' class="list-group-item">Sleeveless T-Shirt</a>
                             </div>
                         </div>
                     </div>
@@ -140,11 +146,11 @@
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <a href="#" class="list-group-item">Legs 1</a>
-                                <a href="#" class="list-group-item">Legs 2</a>
-                                <a href="#" class="list-group-item">Legs 3</a>
-                                <a href="#" class="list-group-item">Legs 4</a>
-                                <a href="#" class="list-group-item">Legs 5</a>
+                                <a href="#" id='blue_pants' class="list-group-item">Blue Pants</a>
+                                <a href="#" id='denim_pants' class="list-group-item">Denim Plants</a>
+                                <a href="#" id='black_shorts' class="list-group-item">Black Shorts</a>
+                                <a href="#" id='brown_shorts' class="list-group-item">Brown Shorts</a>
+                                <a href="#" id='denim_shorts' class="list-group-item">Denim Shorts</a>
                             </div>
                         </div>
                     </div>
@@ -154,11 +160,11 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9">
-                <div class="creator" style="width:750px; height:375px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%;">
-                    <div class="head"></div>
-                    <div class="body"></div>
-                    <div class="legs"></div>
-                    <div class="arms"></div>
+                <div class="creator" style="width:800px; height:400px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%; position:relative;">
+                    <div class="arms" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackt.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                    <div class="body" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                    <div class="legs" style="width:540px; height:270px; background:url('{% static "main_app/img/bluepants.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                    <div class="head" style="width:250px; height:200px; background:url('{% static "main_app/img/wacky.png" %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
                 </div>
             </div>
         </div>
@@ -170,7 +176,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; MAsh uP 2016</p>
+                    <p>MAsh uP | Ashdon and Calvin</p>
                 </div>
             </div>
         </footer>
@@ -180,8 +186,13 @@
 
     <!-- jQuery -->
     <script src="{% static "main_app/js/jquery.js" %}">
-
+        $(document).ready(function{
+            $()
+        })
     </script>
+
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "main_app/js/bootstrap.min.js" %}"></script>

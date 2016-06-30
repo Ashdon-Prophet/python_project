@@ -18,7 +18,8 @@
     <link href="{% static "main_app/css/modern-business.css" %}" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="{% static "main_app/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
-
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +56,12 @@
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
+                        <a href="http://127.0.0.1:8000/creator">Creator</a>
+                    </li>
+                    <li><a href="#">|</a></li>
+                    <li>
                         <a href="http://127.0.0.1:8000/login">Login / Register</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -135,7 +141,12 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="{% static "main_app/js/jquery.js" %}"></script>
+    <script src="{% static "main_app/js/jquery.js" %}">
+
+    </script>
+
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "main_app/js/bootstrap.min.js" %}"></script>
