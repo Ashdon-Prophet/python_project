@@ -47,6 +47,7 @@ class User(models.Model):
     description = models.TextField(max_length=500, default="DESCRIPTION")
     number_created = models.IntegerField(default=0)
     traded = models.IntegerField(default=0)
+    owned = models.IntegerField(default=0)
     last_log = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

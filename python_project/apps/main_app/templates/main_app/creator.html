@@ -84,89 +84,102 @@
 
         <!-- Content Row -->
         <div class="row">
-            <!-- Sidebar Column -->
-            <div class="col-md-3">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Heads</a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" id='normal_head' class="list-group-item">Normal</a>
-                                    <a href="#" id='wacky_head' class="list-group-item">Wacky</a>
+            <form class="new_creation" action="/process" method="post">
+                <input type="hidden" name="head">
+                <input type="hidden" name="body">
+                <input type="hidden" name="arms">
+                <input type="hidden" name="legs">
+
+                <!-- Sidebar Column -->
+                <div class="col-md-3">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Heads</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="#" id='normal_head' class="list-group-item">Normal</a>
+                                        <a href="#" id='wacky_head' class="list-group-item">Wacky</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bodies</a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <a href="#" id="black_shirt" class="list-group-item">Black Shirt</a>
-                                <a href="#" id='blue_shirt' class="list-group-item">Blue Shirt</a>
-                                <a href="#" id='green_shirt' class="list-group-item">Green Shirt</a>
-                                <a href="#" id='grey_shirt' class="list-group-item">Grey Shirt</a>
-                                <a href="#" id='red_shirt' class="list-group-item">Red Shirt</a>
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Bodies</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <a href="#" id="black_shirt" class="list-group-item">Black Shirt</a>
+                                    <a href="#" id='blue_shirt' class="list-group-item">Blue Shirt</a>
+                                    <a href="#" id='green_shirt' class="list-group-item">Green Shirt</a>
+                                    <a href="#" id='grey_shirt' class="list-group-item">Grey Shirt</a>
+                                    <a href="#" id='red_shirt' class="list-group-item">Red Shirt</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Arms</a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <a href="#" id='ninja_sleeves' class="list-group-item">Ninja Shirt</a>
-                                <a href="#" id='black_t' class="list-group-item">Black T-Shirt</a>
-                                <a href="#" id='blue_t' class="list-group-item">Blue T-Shirt</a>
-                                <a href="#" id='red_t' class="list-group-item">Red T-Shirt</a>
-                                <a href="#" id='green_t' class="list-group-item">Green T-Shirt</a>
-                                <a href="#" id='sleeveless' class="list-group-item">Sleeveless T-Shirt</a>
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Arms</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <a href="#" id='ninja_sleeves' class="list-group-item">Ninja Shirt</a>
+                                    <a href="#" id='black_t' class="list-group-item">Black T-Shirt</a>
+                                    <a href="#" id='blue_t' class="list-group-item">Blue T-Shirt</a>
+                                    <a href="#" id='red_t' class="list-group-item">Red T-Shirt</a>
+                                    <a href="#" id='green_t' class="list-group-item">Green T-Shirt</a>
+                                    <a href="#" id='sleeveless' class="list-group-item">Sleeveless T-Shirt</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Legs</a>
-                            </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <a href="#" id='blue_pants' class="list-group-item">Blue Pants</a>
-                                <a href="#" id='denim_pants' class="list-group-item">Denim Plants</a>
-                                <a href="#" id='black_shorts' class="list-group-item">Black Shorts</a>
-                                <a href="#" id='brown_shorts' class="list-group-item">Brown Shorts</a>
-                                <a href="#" id='denim_shorts' class="list-group-item">Denim Shorts</a>
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Legs</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <a href="#" id='blue_pants' class="list-group-item">Blue Pants</a>
+                                    <a href="#" id='denim_pants' class="list-group-item">Denim Plants</a>
+                                    <a href="#" id='black_shorts' class="list-group-item">Black Shorts</a>
+                                    <a href="#" id='brown_shorts' class="list-group-item">Brown Shorts</a>
+                                    <a href="#" id='denim_shorts' class="list-group-item">Denim Shorts</a>
+                                </div>
                             </div>
                         </div>
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.panel-group -->
                 </div>
-                <!-- /.panel-group -->
-            </div>
-            <!-- Content Column -->
-            <div class="col-md-9">
-                <div class="creator" style="width:800px; height:400px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%; position:relative;">
-                    <div class="arms" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackt.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
-                    <div class="body" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
-                    <div class="legs" style="width:540px; height:270px; background:url('{% static "main_app/img/bluepants.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
-                    <div class="head" style="width:250px; height:200px; background:url('{% static "main_app/img/wacky.png" %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
+
+                <!-- Content Column -->
+                <div class="col-md-9">
+                    <div class="creator" style="width:800px; height:400px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%; position:relative;">
+                        <div class="arms" style="width:540px; height:270px; background:url('{% static "main_app/img/palebluet.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <div class="body" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <div class="head" style="width:250px; height:200px; background:url('{% static "main_app/img/wacky.png" %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
+                        <div class="legs" style="width:540px; height:270px; background:url('{% static "main_app/img/bluepants.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                    </div>
                 </div>
-            </div>
+
+                <input type="text" name="name"><br>
+                <input type="textarea" name="description">
+            </form>
+
+
         </div>
         <!-- /.row -->
 
@@ -187,7 +200,11 @@
     <!-- jQuery -->
     <script src="{% static "main_app/js/jquery.js" %}">
         $(document).ready(function{
-            $()
+            $("div").click(function{
+                if(this == $('#normal_head')){
+
+                }
+            })
         })
     </script>
 
