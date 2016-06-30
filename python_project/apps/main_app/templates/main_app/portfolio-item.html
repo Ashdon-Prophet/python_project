@@ -55,7 +55,7 @@
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
-                        <a href="http://127.0.0.1:8000/login">Login / Register</a>
+                        <a href="http://127.0.0.1:8000/login">Log Out</a>
                 </ul>
             </div>
             </div>
@@ -71,7 +71,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">MAsh uP
-                    <small>{{request.reference.user.username}} Profile</small>
+                    <small>{{request.session.first_name}}'s Profile</small>
                 </h1>
             </div>
         </div>
@@ -85,10 +85,10 @@
                     <img class="img-responsive img-hover img-related" src="{% static "main_app/img/logo.png" %}" alt="">
                 </a>
                 <hr>
-                <h3>Username</h3>
+                <h3>{{request.session.username}}</h3>
                 <ul>
-                    <li>You have created {{user.monster_create_count}}.</li>
-                    <li>You have traded {{user.monster_trade_count}}.</li>
+                    <li>You have created {{user.number_created}}.</li>
+                    <li>You have traded {{user.traded}}.</li>
                     <li>You own {{user.monster_count}}.</li>
                     <li>You last logged in {{user.last_login}}</li>
                 </ul>

@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.contrib import messages
 from django.db import models
 import bcrypt
@@ -38,6 +39,7 @@ class UserManager(models.Manager):
             return (True, user)
         return (False, errors)
 
+@python_2_unicode_compatible
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -52,6 +54,8 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     userManager = UserManager()
 
+    def __str__(self):
+        return self.email
 
 class Head(models.Model):
     style_name = models.CharField(max_length=100)
