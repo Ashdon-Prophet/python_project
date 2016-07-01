@@ -51,7 +51,7 @@ class User(models.Model):
     number_created = models.IntegerField(default=0)
     traded = models.IntegerField(default=0)
     owned = models.IntegerField(default=0)
-    last_log = models.DateTimeField(auto_now=True)
+    last_log = models.DateField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     userManager = UserManager()
@@ -59,6 +59,8 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+
+@python_2_unicode_compatible
 class Creature(models.Model):
     HEAD_CHOICES = (
         ('Normal', 'Normal'),

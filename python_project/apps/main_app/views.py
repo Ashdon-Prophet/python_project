@@ -9,11 +9,14 @@ def page_not_found(request):
     return render(request, 'main_app/404.html')
 
 def trade_room(request):
-    return render(request, 'main_app/blog-home-2.html')
+    creatures = Creature.objects.all()
+    context = {
+        'creatures': creatures
+    }
+    return render(request, 'main_app/blog-home-2.html', context)
 
 def profile(request):
     user = User.userManager.get(username=request.session['username'])
-    print user
     return render(request, 'main_app/portfolio-item.html', {'user': user})
 
 def creator(request):
@@ -26,8 +29,14 @@ def creator(request):
 def loginandreg(request):
     return render(request, 'main_app/login.html')
 
-def trade(request):
-    return render(request, 'main_app/pricing.html')
+def trade(request, id):
+    creature = Creature.objects.get(id=id)
+    all_creatures = Creature.objects.all()
+    context = {
+        'creature': creature,
+        'all_creatures': all_creatures
+        }
+    return render(request, 'main_app/pricing.html', context)
 
 def logout(request):
     request.session.flush()
@@ -67,7 +76,7 @@ def process_login(request):
             request.session['email'] = user[1].email
             return redirect('/profile')
         except:
-            return redirect('/page_not_found')
+            return redirect('/login')
 
 def process_trade(request):
     return render(request, 'main_app/pricing.html')
