@@ -86,14 +86,17 @@
         <!-- Content Row -->
         <div class="row">
             <form class="new_creation" id="create_form" action="/process_create" method="post">
-                <input type="hidden" name="head">
-                <input type="hidden" name="body">
-                <input type="hidden" name="arms">
-                <input type="hidden" name="legs">
+                {% csrf_token %}
+                <input type="hidden" id="form_head" name="head" value="Normal">
+                <input type="hidden" id="form_body" name="body" value="Black Body">
+                <input type="hidden" id="form_arms" name="arms" value="Blue Pants">
+                <input type="hidden" id="form_legs" name="legs" value="Blue T-Shirt">
                 <input type="text" name="creature_name" placeholder="Creauture Name">
                 <input type="text" name="description" placeholder="Creature Description">
+                <input type="submit" value="Create Creature">
             </form>
             <form class="change_features" id="update_form" action="/process_update">
+                {% csrf_token %}
                 <!-- Sidebar Column -->
                 <div class="col-md-3">
 
@@ -101,20 +104,18 @@
                         <h4>Heads</h4>
                         <div class="row">
                             <div class="col-lg-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#"><button type="button" id='standard'>Normal</button></a>
+                                <ul id="head" class="list-unstyled">
+                                    <li><a href="#"><button type="button" id='normal'>Normal</button></a>
                                     </li>
                                     <li><a href="#"><button type="button" id='wacky'>Wacky</button></a>
                                     </li>
                                 </ul>
                             </div>
                             <!-- /.col-lg-6 -->
-
                         <h4>Shirts</h4>
-
                             <div class="col-lg-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#"><button type="button" id="paleblackdody">Black Shirt</button></a>
+                                <ul id="bod" class="list-unstyled">
+                                    <li><a href="#"><button type="button" id="paleblackbody">Black Shirt</button></a>
                                     </li>
                                     <li><a href="#"><button type="button" id='palebluebody'>Blue Shirt</button></a>
                                     </li>
@@ -131,7 +132,7 @@
                         <h4>Shirts</h4>
                         <div class="row">
                             <div class="col-lg-6">
-                                <ul class="list-unstyled">
+                                <ul id="arms" class="list-unstyled">
                                     <li><a href="#"><button type="button" id='ninja'>Ninja Shirt</button></a>
                                     </li>
                                     <li><a href="#"><button type="button" id='paleblackt'>Black T-Shirt</button></a>
@@ -151,10 +152,8 @@
                         <h4>Shirts</h4>
 
                             <div class="col-lg-6">
-                                <ul class="list-unstyled">
+                                <ul id="legs" class="list-unstyled">
                                     <li><a href="#"><button type="button" id='bluepants'>Blue Pants</button></a>
-                                    </li>
-                                    <li><a href="#"><button type="button" id='denimpants'>Denim Plants</button></a>
                                     </li>
                                     <li><a href="#"><button type="button" id='denimpants'>Denim Plants</button></a>
                                     </li>
@@ -176,10 +175,28 @@
                 <!-- Content Column -->
                 <div class="col-md-9">
                     <div class="creator" style="width:800px; height:400px; background:url('{% static "main_app/img/creator_background.png" %}') no-repeat center; background-size: 100%; position:relative;">
-                        <div class="arms" style="width:540px; height:270px; background:url('{% with 'main_app/img/'|add:request.session.arms|add:'.png' as image_static %}{% static image_static %}{% endwith %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
-                        <div class="body" style="width:540px; height:270px; background:url('{% with 'main_app/img/'|add:request.session.body|add:'.png' as image_static %}{% static image_static %}{% endwith %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
-                        <div class="head" style="width:250px; height:200px; background:url('{% with 'main_app/img/'|add:request.session.head|add:'.png' as image_static %}{% static image_static %}{% endwith %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
-                        <div class="legs" style="width:540px; height:270px; background:url('{% with 'main_app/img/'|add:request.session.legs|add:'.png' as image_static %}{% static image_static %}{% endwith %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <!-- arms -->
+                        <div class="arms paleredt" style="width:540px; height:270px; background:url('{% static "main_app/img/paleredt.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="arms palebluet" style="width:540px; height:270px; background:url('{% static "main_app/img/palebluet.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <div class="arms palegreent" style="width:540px; height:270px; background:url('{% static "main_app/img/palegreent.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="arms paleblackt" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackt.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="arms palesleeveless" style="width:540px; height:270px; background:url('{% static "main_app/img/palesleeveless.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="arms ninja" style="width:540px; height:270px; background:url('{% static "main_app/img/ninja.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <!-- bod -->
+                        <div class="bod paleblackbody" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <div class="bod palegreenbody" style="width:540px; height:270px; background:url('{% static "main_app/img/palegreenbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="bod palebluebody" style="width:540px; height:270px; background:url('{% static "main_app/img/palebluebody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="bod palegreybody" style="width:540px; height:270px; background:url('{% static "main_app/img/palegreybody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="bod paleredbody" style="width:540px; height:270px; background:url('{% static "main_app/img/paleredbody.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <!-- head -->
+                        <div class="head normal" style="width:250px; height:200px; background:url('{% static "main_app/img/normal.png" %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
+                        <div class="head wacky" style="width:250px; height:200px; background:url('{% static "main_app/img/wacky.png" %}') no-repeat center; background-size: 100%; position:absolute; top:0px; left:310px;"></div>
+                        <!-- legs -->
+                        <div class="legs bluepants" style="width:540px; height:270px; background:url('{% static "main_app/img/bluepants.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px;"></div>
+                        <div class="legs denimpants" style="width:540px; height:270px; background:url('{% static "main_app/img/denimpants.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="legs paleblackshorts" style="width:540px; height:270px; background:url('{% static "main_app/img/paleblackshorts.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="legs palebrownshorts" style="width:540px; height:270px; background:url('{% static "main_app/img/palebrownshorts.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
+                        <div class="legs paledenimshorts" style="width:540px; height:270px; background:url('{% static "main_app/img/paledenimshorts.png" %}') no-repeat center; background-size: 100%; position:absolute; top:50px; left:300px; display:none;"></div>
                     </div>
                 </div>
             </form>
@@ -209,10 +226,134 @@
     $(document).ready(function(){
         $('button').click(function(){
             console.log('outside');
-            console.log($(this).parent().parent().attr('id'));
-            if( $(this).parent().parent().attr('id') == 'type_head'){
+            console.log( $(this).parent().parent().parent().attr("id") );
+            if( $(this).parent().parent().parent().attr("id") == 'head' ){
                 console.log('inside');
-                $('#the_form').submit();
+                $(".head").hide();
+                console.log('sent all divs with .bod class to diplay none');
+                if( this.id == 'normal' ){
+                    $('.normal').toggle();
+                    console.log( "Normal head diplay set to show" );
+                    $("#form_head").attr('value', "Normal");
+                    console.log( "Normal value updated" );
+                }
+                if( this.id == 'wacky' ){
+                    $('.wacky').toggle();
+                    console.log( "Wacky head diplay set to show" );
+                    $("#form_head").attr('value', "Wacky");
+                    console.log( "Wacky value updated" );
+                }
+            }
+            if( $(this).parent().parent().parent().attr("id") == 'bod' ){
+                console.log('inside');
+                $(".bod").hide();
+                console.log('sent all divs with .bod class to diplay none');
+                if( this.id == 'paleblackbody' ){
+                    $( '.paleblackbody' ).toggle();
+                    console.log( "Black Shirt diplay set to show" );
+                    $("#form_body").attr('value', "Black Shirt");
+                    console.log( "Black Shirt value updated" );
+                }
+                if( this.id == 'palegreenbody' ){
+                    $( '.palegreenbody' ).toggle();
+                    console.log( "Green Shirt diplay set to show" );
+                    $("#form_body").attr('value', "Green Shirt");
+                    console.log( "Green Shirt value updated" );
+                }
+                if( this.id == 'paleredbody' ){
+                    $( '.paleredbody' ).toggle();
+                    console.log( "Red Shirt diplay set to show" );
+                    $("#form_body").attr('value', "Red Shirt");
+                    console.log( "Red Shirt value updated" );
+                }
+                if( this.id == 'palebluebody' ){
+                    $( '.palebluebody' ).toggle();
+                    console.log( "Blue Shirt diplay set to show" );
+                    $("#form_body").attr('value', "Blue Shirt");
+                    console.log( "Blue Shirt value updated" );
+                }
+                if( this.id == 'palegreybody' ){
+                    $( '.palegreybody' ).toggle();
+                    console.log( "Grey Shirt diplay set to show" );
+                    $("#form_body").attr('value', "Grey Shirt");
+                    console.log( "Grey Shirt value updated" );
+                }
+            }
+            if( $(this).parent().parent().parent().attr("id") == 'legs' ){
+                console.log('inside');
+                $(".legs").hide();
+                console.log('sent all divs with .legs class to diplay none');
+                if( this.id == 'bluepants' ){
+                    $( '.bluepants' ).toggle();
+                    console.log( "Blue Pants diplay set to show" );
+                    $("#form_legs").attr('value', "Blue Pants");
+                    console.log( "Blue Pants value updated" );
+                }
+                if( this.id == 'denimpants' ){
+                    $( '.denimpants' ).toggle();
+                    console.log( "Denim Pants diplay set to show" );
+                    $("#form_legs").attr('value', "Denim Pants");
+                    console.log( "Denim Pants value updated" );
+                }
+                if( this.id == 'paleblackshorts' ){
+                    $( '.paleblackshorts' ).toggle();
+                    console.log( "Black Shorts diplay set to show" );
+                    $("#form_legs").attr('value', "Black Shorts");
+                    console.log( "Black Shorts value updated" );
+                }
+                if( this.id == 'palebrownshorts' ){
+                    $( '.palebrownshorts' ).toggle();
+                    console.log( "Brown Shorts diplay set to show" );
+                    $("#form_legs").attr('value', "Brown Shorts");
+                    console.log( "Brown Shorts value updated" );
+                }
+                if( this.id == 'paledenimshorts' ){
+                    $( '.paledenimshorts' ).toggle();
+                    console.log( "Denim Shorts diplay set to show" );
+                    $("#form_legs").attr('value', "Denim Shorts");
+                    console.log( "Denim Shorts value updated" );
+                }
+            }
+            if( $(this).parent().parent().parent().attr("id") == 'arms' ){
+                console.log('inside');
+                $(".arms").hide();
+                console.log('sent all divs with .arms class to diplay none');
+                if( this.id == 'palebluet' ){
+                    $( '.palebluet' ).toggle();
+                    console.log( "Blue TShirt diplay set to show" );
+                    $("#form_arms").attr('value', "Blue T-Shirt");
+                    console.log( "Blue T-Shirt value updated" );
+                }
+                if( this.id == 'palegreent' ){
+                    $( '.palegreent' ).toggle();
+                    console.log( "Green TShirt diplay set to show" );
+                    $("#form_arms").attr('value', "Green T-Shirt");
+                    console.log( "Green T-Shirt value updated" );
+                }
+                if( this.id == 'paleblackt' ){
+                    $( '.paleblackt' ).toggle();
+                    console.log( "Black TShirt diplay set to show" );
+                    $("#form_arms").attr('value', "Black T-Shirt");
+                    console.log( "Black T-Shirt value updated" );
+                }
+                if( this.id == 'paleredt' ){
+                    $( '.paleredt' ).toggle();
+                    console.log( "Red TShirt diplay set to show" );
+                    $("#form_arms").attr('value', "Red T-Shirt");
+                    console.log( "Red T-Shirt value updated" );
+                }
+                if( this.id == 'palesleeveless' ){
+                    $( '.palesleeveless' ).toggle();
+                    console.log( "Sleveless Shirt diplay set to show" );
+                    $("#form_arms").attr('value', "Sleeveless T-Shirt");
+                    console.log( "Sleeveless T-Shirt value updated" );
+                }
+                if( this.id == 'ninja' ){
+                    $( '.ninja' ).toggle();
+                    console.log( "Ninja Shirt diplay set to show" );
+                    $("#form_arms").attr('value', "Ninja T-Shirt");
+                    console.log( "Ninja T-Shirt value updated" );
+                }
             }
         });
 
