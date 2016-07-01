@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
-from .models import User
+from .models import User, Creature
 
 def index(request):
     return render(request, 'main_app/index.html')
@@ -17,10 +17,17 @@ def profile(request):
     return render(request, 'main_app/portfolio-item.html', {'user': user})
 
 def creator(request):
+    request.session['head'] = 'normal'
+    request.session['bod'] = 'paleblackbody'
+    request.session['legs'] = 'bluepants'
+    request.session['arms'] = 'palebluet'
     return render(request, 'main_app/creator.html')
 
 def loginandreg(request):
     return render(request, 'main_app/login.html')
+
+def trade(request):
+    return render(request, 'main_app/pricing.html')
 
 def logout(request):
     request.session.flush()
@@ -33,8 +40,18 @@ def process_register(request):
             for key, error in new_user.iteritems():
                 messages.error(request, error)
             return redirect('/login')
-        request.session['username'] = request.POST['username']
-        request.session['first_name'] = request.POST['first_name']
+        request.session['id'] = user[1].id
+        request.session['first_name'] = user[1].first_name
+        request.session['last_name'] = user[1].last_name
+        request.session['username'] = user[1].username
+        request.session['description'] = user[1].description
+        request.session['owned'] = user[1].owned
+        request.session['last_log'] = user[1].last_log
+        request.session['traded'] = user[1].traded
+        request.session['number_created'] = user[1].number_created
+        request.session['email'] = user[1].email
+        request.session['updated_at'] = user[1].updated_at
+        request.session['created_at'] = user[1].created_at
         return redirect('/profile')
 
 def process_login(request):
@@ -43,6 +60,19 @@ def process_login(request):
             user = User.userManager.login(request.POST['email'], request.POST['password'])
             request.session['username'] = user[1].username
             request.session['first_name'] = user[1].first_name
+            request.session['last_name'] = user[1].last_name
+            request.session['username'] = user[1].username
+            request.session['description'] = user[1].description
+            request.session['owned'] = user[1].owned
+            request.session['last_log'] = user[1].last_log
+            request.session['traded'] = user[1].traded
+            request.session['number_created'] = user[1].number_created
+            request.session['email'] = user[1].email
+            request.session['updated_at'] = user[1].updated_at
+            request.session['created_at'] = user[1].created_at
             return redirect('/profile')
         except:
-            return redirect('/login')
+            return redirect('/page_not_found')
+
+def process_trade(request):
+    return render(request, 'main_app/pricing.html')
