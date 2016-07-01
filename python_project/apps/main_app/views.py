@@ -29,8 +29,14 @@ def creator(request):
 def loginandreg(request):
     return render(request, 'main_app/login.html')
 
-def trade(request):
-    return render(request, 'main_app/pricing.html')
+def trade(request, id):
+    creature = Creature.objects.get(id=id)
+    all_creatures = Creature.objects.all()
+    context = {
+        'creature': creature,
+        'all_creatures': all_creatures
+        }
+    return render(request, 'main_app/pricing.html', context)
 
 def logout(request):
     request.session.flush()
