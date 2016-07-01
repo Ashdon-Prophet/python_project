@@ -40,39 +40,43 @@ def process_register(request):
             for key, error in new_user.iteritems():
                 messages.error(request, error)
             return redirect('/login')
-        request.session['id'] = user[1].id
-        request.session['first_name'] = user[1].first_name
-        request.session['last_name'] = user[1].last_name
-        request.session['username'] = user[1].username
-        request.session['description'] = user[1].description
-        request.session['owned'] = user[1].owned
-        request.session['last_log'] = user[1].last_log
-        request.session['traded'] = user[1].traded
-        request.session['number_created'] = user[1].number_created
-        request.session['email'] = user[1].email
-        request.session['updated_at'] = user[1].updated_at
-        request.session['created_at'] = user[1].created_at
+        request.session['id'] = new_user[1].id
+        request.session['first_name'] = new_user[1].first_name
+        request.session['last_name'] = new_user[1].last_name
+        request.session['username'] = new_user[1].new_username
+        request.session['description'] = new_user[1].description
+        request.session['owned'] = new_user[1].owned
+        request.session['traded'] = new_user[1].traded
+        request.session['number_created'] = new_user[1].number_created
+        request.session['email'] = new_user[1].email
         return redirect('/profile')
 
 def process_login(request):
     if request.method == 'POST':
         try:
             user = User.userManager.login(request.POST['email'], request.POST['password'])
+            request.session['id'] = user[1].id
             request.session['username'] = user[1].username
             request.session['first_name'] = user[1].first_name
             request.session['last_name'] = user[1].last_name
             request.session['username'] = user[1].username
             request.session['description'] = user[1].description
             request.session['owned'] = user[1].owned
-            request.session['last_log'] = user[1].last_log
             request.session['traded'] = user[1].traded
             request.session['number_created'] = user[1].number_created
             request.session['email'] = user[1].email
-            request.session['updated_at'] = user[1].updated_at
-            request.session['created_at'] = user[1].created_at
             return redirect('/profile')
         except:
             return redirect('/page_not_found')
 
 def process_trade(request):
     return render(request, 'main_app/pricing.html')
+
+def process_create(request):
+    if request.method == 'POST':
+        owner = User.userManager.get(id=request.session['id'])
+        ceature = Creature.objects.create(name = request.POST['creature_name'], description = request.POST['description'], head_style = request.POST['head'], body_style = request.POST['body'], arm_style = request.POST['arms'], leg_style = request.POST['legs'], owner = owner)
+        owner.owned += 1
+        owner.number_created += 1
+        owner.save()
+        return redirect('/profile')
