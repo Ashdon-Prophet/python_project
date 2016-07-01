@@ -4,6 +4,7 @@ from django.db import models
 import bcrypt
 import re
 
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+.[a-zA-Z]*$')
 
 class UserManager(models.Manager):
@@ -53,32 +54,35 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     userManager = UserManager()
 
+    def __str__(self):
+        return self.username
+
 class Creature(models.Model):
     HEAD_CHOICES = (
-        ('main_app/img/standard.png', 'Normal'),
-        ('main_app/img/wacky.png', 'Wacky'),
+        ('Normal', 'Normal'),
+        ('Wacky', 'Wacky'),
     )
     BODY_CHOICES = (
-        ('main_app/img/paleblackbody.png', 'Black Shirt'),
-        ('main_app/img/palebluebody.png', 'Blue Shirt'),
-        ('main_app/img/palegreenbody.png', 'Green Shirt'),
-        ('main_app/img/palegreybody.png', 'Grey Shirt'),
-        ('main_app/img/paleredbody.png', 'Red Shirt'),
+        ('Black Shirt', 'Black Shirt'),
+        ('Blue Shirt', 'Blue Shirt'),
+        ('Green Shirt', 'Green Shirt'),
+        ('Grey Shirt', 'Grey Shirt'),
+        ('Red Shirt', 'Red Shirt'),
     )
     ARM_CHOICES = (
-        ('main_app/img/ninja.png', 'Ninja Shirt'),
-        ('main_app/img/paleblackt.png', 'Black T-Shirt'),
-        ('main_app/img/palebluet.png', 'Blue T-Shirt'),
-        ('main_app/img/paleredt.png', 'Red T-Shirt'),
-        ('main_app/img/palegreent.png', 'Green T-Shirt'),
-        ('main_app/img/palesleveless.png', 'Sleeveless T-Shirt'),
+        ('Ninja Shirt', 'Ninja Shirt'),
+        ('Black T-Shirt', 'Black T-Shirt'),
+        ('Blue T-Shirt', 'Blue T-Shirt'),
+        ('Red T-Shirt', 'Red T-Shirt'),
+        ('Green T-Shirt', 'Green T-Shirt'),
+        ('Sleeveless T-Shirt', 'Sleeveless T-Shirt'),
     )
     LEG_CHOICES = (
-        ('main_app/img/bluepants.png', 'Blue Pants'),
-        ('main_app/img/denimpants.png', 'Denim Plants'),
-        ('main_app/img/paleblackshorts.png', 'Black Shorts'),
-        ('main_app/img/palebrownshorts.png', 'Brown Shorts'),
-        ('main_app/img/bluepants.png', 'Denim Shorts'),
+        ('Blue Pants', 'Blue Pants'),
+        ('Denim Plants', 'Denim Plants'),
+        ('Black Shorts', 'Black Shorts'),
+        ('Brown Shorts', 'Brown Shorts'),
+        ('Denim Shorts', 'Denim Shorts'),
     )
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
@@ -89,6 +93,9 @@ class Creature(models.Model):
     owner = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 class Trade(models.Model):
     user_sender = models.ForeignKey(User, related_name="sender")

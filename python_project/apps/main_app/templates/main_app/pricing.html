@@ -47,15 +47,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="http://127.0.0.1:8000/services">Services</a>
+                        <a href="http://127.0.0.1:8000/trade_room">Trade Room</a>
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
-                        <a href="http://127.0.0.1:8000/portfolio_item">Trade Room</a>
+                        <a href="http://127.0.0.1:8000/profile">Profile</a>
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
-                        <a href="http://127.0.0.1:8000/blog2">Profile</a>
+                        <a href="http://127.0.0.1:8000/creator">Creator</a>
                     </li>
                     <li><a href="#">|</a></li>
                     <li>
@@ -74,80 +74,64 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Pricing Table
-                    <small>Subheading</small>
+                <h1 class="page-header">MAsh uP
+                    <small>Trade</small>
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
-                    </li>
-                    <li class="active">Pricing Table</li>
-                </ol>
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Content Row -->
         <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Basic</h3>
+            <form action="/process_trade">
+                <input type="hidden" name="user_trading_id" value="{{user1.id}}">
+                <input type="hidden" name="user_receiving_id" value="{{user2.id}}">
+                <input type="hidden" name="monster_traded_away_id" value="{{creature1.id}}">
+                <input type="hidden" name="monster_traded_for_id" value="{{creature2.id}}">
+                <div class="col-md-6">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Monster Given</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="price">Name 1</span>
+                            <span class="period">Username</span>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Type of</strong> Head</li>
+                            <li class="list-group-item"><strong>Type of</strong> Body</li>
+                            <li class="list-group-item"><strong>Type of</strong> Arms</li>
+                            <li class="list-group-item"><strong>Type of</strong> Legs</li>
+                            <li class="list-group-item"><strong>Time</strong> Created At</li>
+                            <li class="list-group-item">
+                                <select>
+                                    <option value="MONSTER">MONSTER OPTIONS</option>
+                                </select>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="panel-body">
-                        <span class="price"><sup>$</sup>19<sup>99</sup></span>
-                        <span class="period">per month</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>1</strong> User</li>
-                        <li class="list-group-item"><strong>5</strong> Projects</li>
-                        <li class="list-group-item"><strong>Unlimited</strong> Email Accounts</li>
-                        <li class="list-group-item"><strong>10GB</strong> Disk Space</li>
-                        <li class="list-group-item"><strong>100GB</strong> Monthly Bandwidth</li>
-                        <li class="list-group-item"><a href="#" class="btn btn-primary">Sign Up!</a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-primary text-center">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Plus <span class="label label-success">Best Value</span></h3>
+                <div class="col-md-6">
+                    <div class="panel panel-primary text-center">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Monster Received</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="price">Name 2</span>
+                            <span class="period">Username</span>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Type of</strong> Head</li>
+                            <li class="list-group-item"><strong>Type of</strong> Body</li>
+                            <li class="list-group-item"><strong>Type of</strong> Arms</li>
+                            <li class="list-group-item"><strong>Type of</strong> Legs</li>
+                            <li class="list-group-item"><strong>Time</strong> Created At</li>
+                            <li class="list-group-item"><button type="submit">TRADE!</button>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="panel-body">
-                        <span class="price"><sup>$</sup>39<sup>99</sup></span>
-                        <span class="period">per month</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>10</strong> User</li>
-                        <li class="list-group-item"><strong>500</strong> Projects</li>
-                        <li class="list-group-item"><strong>Unlimited</strong> Email Accounts</li>
-                        <li class="list-group-item"><strong>1000GB</strong> Disk Space</li>
-                        <li class="list-group-item"><strong>10000GB</strong> Monthly Bandwidth</li>
-                        <li class="list-group-item"><a href="#" class="btn btn-primary">Sign Up!</a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ultra</h3>
-                    </div>
-                    <div class="panel-body">
-                        <span class="price"><sup>$</sup>159<sup>99</sup></span>
-                        <span class="period">per month</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>Unlimted</strong> Users</li>
-                        <li class="list-group-item"><strong>Unlimited</strong> Projects</li>
-                        <li class="list-group-item"><strong>Unlimited</strong> Email Accounts</li>
-                        <li class="list-group-item"><strong>10000GB</strong> Disk Space</li>
-                        <li class="list-group-item"><strong>Unlimited</strong> Monthly Bandwidth</li>
-                        <li class="list-group-item"><a href="#" class="btn btn-primary">Sign Up!</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            </form>
         </div>
         <!-- /.row -->
 
