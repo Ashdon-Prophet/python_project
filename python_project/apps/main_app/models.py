@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.contrib import messages
 from django.db import models
 import bcrypt
@@ -39,6 +40,7 @@ class UserManager(models.Manager):
             return (True, user)
         return (False, errors)
 
+@python_2_unicode_compatible
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -101,6 +103,6 @@ class Trade(models.Model):
     user_sender = models.ForeignKey(User, related_name="sender")
     user_recipient = models.ForeignKey(User, related_name="recipient")
     creature_sent = models.ForeignKey(Creature, related_name="sent")
-    creature_received = models.ForeignKey(Creature, related_name="reveived")
+    creature_received = models.ForeignKey(Creature, related_name="received")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

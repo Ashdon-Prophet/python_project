@@ -12,7 +12,9 @@ def trade_room(request):
     return render(request, 'main_app/blog-home-2.html')
 
 def profile(request):
-    return render(request, 'main_app/portfolio-item.html')
+    user = User.userManager.get(username=request.session['username'])
+    print user
+    return render(request, 'main_app/portfolio-item.html', {'user': user})
 
 def creator(request):
     request.session['head'] = 'normal'
@@ -26,6 +28,10 @@ def loginandreg(request):
 
 def trade(request):
     return render(request, 'main_app/pricing.html')
+
+def logout(request):
+    request.session.flush()
+    return redirect('/')
 
 def process_register(request):
     if request.method == 'POST':
@@ -52,7 +58,7 @@ def process_login(request):
     if request.method == 'POST':
         try:
             user = User.userManager.login(request.POST['email'], request.POST['password'])
-            request.session['id'] = user[1].id
+            request.session['username'] = user[1].username
             request.session['first_name'] = user[1].first_name
             request.session['last_name'] = user[1].last_name
             request.session['username'] = user[1].username
