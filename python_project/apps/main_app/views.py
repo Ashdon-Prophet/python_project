@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
-from .models import User
+from datetime import datetime
+from .models import User, Creature
 
 def index(request):
     return render(request, 'main_app/index.html')
@@ -9,11 +10,14 @@ def page_not_found(request):
     return render(request, 'main_app/404.html')
 
 def trade_room(request):
-    return render(request, 'main_app/blog-home-2.html')
+    creatures = Creature.objects.all()
+    context = {
+        'creatures': creatures
+    }
+    return render(request, 'main_app/blog-home-2.html', context)
 
 def profile(request):
     user = User.userManager.get(username=request.session['username'])
-    print user
     return render(request, 'main_app/portfolio-item.html', {'user': user})
 
 def creator(request):
