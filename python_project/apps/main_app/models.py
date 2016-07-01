@@ -5,6 +5,7 @@ from django.db import models
 import bcrypt
 import re
 
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+.[a-zA-Z]*$')
 
 class UserManager(models.Manager):
@@ -56,7 +57,7 @@ class User(models.Model):
     userManager = UserManager()
 
     def __str__(self):
-        return self.email
+        return self.username
 
 
 @python_2_unicode_compatible
