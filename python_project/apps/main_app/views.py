@@ -30,10 +30,10 @@ def loginandreg(request):
     return render(request, 'main_app/login.html')
 
 def trade(request, id):
-    creature = Creature.objects.get(id=id)
+    creature1 = Creature.objects.get(id=id)
     all_creatures = Creature.objects.all()
     context = {
-        'creature': creature,
+        'creature1': creature1,
         'all_creatures': all_creatures
         }
     return render(request, 'main_app/pricing.html', context)

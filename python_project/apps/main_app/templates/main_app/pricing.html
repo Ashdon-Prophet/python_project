@@ -94,15 +94,15 @@
                             <h3 class="panel-title">Monster Given</h3>
                         </div>
                         <div class="panel-body">
-                            <span class="price">{{creature.name}}</span>
-                            <span class="period">{{creature.owner}}</span>
+                            <span class="price">{{creature1.name}}</span>
+                            <span class="period">{{creature1.owner}}</span>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item"><strong>Type of</strong> Head:<p>{{creature.head_style}}</p></li>
-                            <li class="list-group-item"><strong>Type of</strong> Body:<p>{{creature.body_style}}</p></li>
-                            <li class="list-group-item"><strong>Type of</strong> Arms:<p>{{creature.arm_style}}</p></li>
-                            <li class="list-group-item"><strong>Type of</strong> Legs:<p>{{creature.leg_style}}</p></li>
-                            <li class="list-group-item"><strong>Time</strong> Created At:<p>{{creature.created_at}}</p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Head:<p>{{creature1.head_style}}</p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Body:<p>{{creature1.body_style}}</p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Arms:<p>{{creature1.arm_style}}</p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Legs:<p>{{creature1.leg_style}}</p></li>
+                            <li class="list-group-item"><strong>Time</strong> Created At:<p>{{creature1.created_at}}</p></li>
                         </ul>
                     </div>
                 </div>
@@ -112,19 +112,20 @@
                             <h3 class="panel-title">Monster Received</h3>
                         </div>
                         <div class="panel-body">
-                            <span class="price">Name 2</span>
-                            <span class="period">Username</span>
+                            <span class="price" id="name">Creature</span>
+                            <span class="period" id="owner">Owner</span>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item"><strong>Type of</strong> Head</li>
-                            <li class="list-group-item"><strong>Type of</strong> Body</li>
-                            <li class="list-group-item"><strong>Type of</strong> Arms</li>
-                            <li class="list-group-item"><strong>Type of</strong> Legs</li>
-                            <li class="list-group-item"><strong>Time</strong> Created At</li>
+                            <li class="list-group-item"><strong>Type of</strong> Head:<p id="head"></p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Body:<p id="body"></p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Arms:<p id="arms"></p></li>
+                            <li class="list-group-item"><strong>Type of</strong> Legs:<p id="legs"></p></li>
+                            <li class="list-group-item"><strong>Time</strong> Created At:<p id="created"></p></li>
                             <li class="list-group-item">
-                                <select>
-                                {% for creature in all_creatures %}
-                                    <option value="MONSTER">{{creature.name}}</option>
+                                <select id="monster_selector">
+                                    <option disabled selected value> - select an option - </option>
+                                {% for creature2 in all_creatures %}
+                                    <option>{{creature2.name}}</option>
                                 {% endfor %}
                                 </select>
                             </li>
@@ -152,7 +153,29 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="{% static "main_app/js/jquery.js" %}"></script>
+    {% for creature2 in all_creatures %}
+    <script src="{% static 'main_app/js/jquery.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("select").change(function(){
+                $("select option:selected").each(function(){
+                    option_selected = $("select option:selected").text();
+                    if(option_selected == "{{creature2.name}}"){
+                        $("#name").html("<span>{{creature2.name}}");
+                        $("#owner").html("<span>{{creature2.owner}}");
+                        $("#head").html("<p>{{creature2.head_style}}</p>");
+                        $("#body").html("<p>{{creature2.body_style}}</p>");
+                        $("#arms").html("<p>{{creature2.arm_style}}</p>");
+                        $("#legs").html("<p>{{creature2.leg_style}}</p>");
+                        $("#created").html("<p>{{creature2.created_at}}</p>");
+                        
+                    }
+                });
+            });
+        });
+
+    </script>
+    {% endfor %}
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "main_app/js/bootstrap.min.js" %}"></script>
@@ -160,3 +183,4 @@
 </body>
 
 </html>
+
