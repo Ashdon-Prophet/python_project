@@ -83,7 +83,7 @@ class Creature(models.Model):
     )
     LEG_CHOICES = (
         ('Blue Pants', 'Blue Pants'),
-        ('Denim Plants', 'Denim Plants'),
+        ('Denim Plants', 'Denim Pants'),
         ('Black Shorts', 'Black Shorts'),
         ('Brown Shorts', 'Brown Shorts'),
         ('Denim Shorts', 'Denim Shorts'),

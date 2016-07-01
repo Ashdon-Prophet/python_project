@@ -49,16 +49,7 @@ def process_register(request):
             for key, error in new_user.iteritems():
                 messages.error(request, error)
             return redirect('/login')
-        request.session['id'] = new_user[1].id
-        request.session['first_name'] = new_user[1].first_name
-        request.session['last_name'] = new_user[1].last_name
-        request.session['username'] = new_user[1].new_username
-        request.session['description'] = new_user[1].description
-        request.session['owned'] = new_user[1].owned
-        request.session['traded'] = new_user[1].traded
-        request.session['number_created'] = new_user[1].number_created
-        request.session['email'] = new_user[1].email
-        return redirect('/profile')
+        return redirect('/login')
 
 def process_login(request):
     if request.method == 'POST':
